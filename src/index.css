@@ -1,10 +1,4 @@
 * { box-sizing:border-box; }
-/* 
-blue - #2862b7
-lt blue - #2b71b1
-green - #00c57f
-lt green - #29CA91
-*/
 html {
     height:100%;
     width:100%;
@@ -16,10 +10,67 @@ body {
   color:white;
   background:  #2862b7;
   background:linear-gradient(180deg,#0f62bd 24%,#0a407a 168%);
+ 
  }
- body.solidBackground {
-     background:  #2862b7 !important
- }
- body::after {
-     content: "";
-   }
+body.solidBackground {
+    background:  #2862b7 !important;
+  }
+body::after{
+    content: "";
+  }
+
+  .mainBox {
+    padding:20px;
+    margin: 0 auto;
+    max-width: 1180px;
+}
+.mainBox.backgroundInverse {
+    color:#2862b7;
+    background:  #fff;  
+    max-width: 700px;
+}
+.mainInnerBox {
+    padding-top:40px;
+    margin: 0 auto;
+    width:480px;
+    text-align: center;
+}
+.mainInnerBox.noTop{
+    padding-top:0px;
+}
+.mainInnerBoxHeader {
+    font-weight: normal;
+    font-size: 36px;
+    margin: 0 auto;
+    text-align: center;
+    margin:.67em 0;
+}
+.mainInnerBoxSubtitle {
+    line-height: 1.6;
+    text-align: center;
+    font-weight: 300;
+}
+#frmQuickStart {
+    width:90%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+fieldset {
+    margin:0 auto;
+    border: none;
+    text-align:center;
+}
+fieldset input,fieldset textarea,fieldset button,fieldset a {
+    border: solid 1px #dcdcdc;
+    height:auto;
+    width:100%;
+    padding:15px;
+    display: block;
+    text-align: left;
+    margin: 0 auto;
+    border-radius: 3px;
+    background: #fcfcfc;
+    margin: 10px auto 10px ;
+    transition: opacity 0.4s;
+}
