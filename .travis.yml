@@ -1,2 +1,14 @@
 language: node_js
 node_js: node
+cache:
+  directories:
+  - node_modules
+env:
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: VoahU5td6t0v09f7za+jKY6g6QX2LVAAboLNvgtr3hav1KkEdjF97665KFL3soxxmknMFcY+an06+WU0KPhg4cKPbk7R9QQPozpmMMUZ2YiSZ7lK/42usc70PXPyPnG6lkVMekXhQJR7fAp3zvTFAPtYdiKdu+3kLh1L0HV7TbFHgk/DShaEkN5BVkoz41HZQSAm9v0GA8QKG+yDyXmt98bOfDZkDGUPsOKmBjOEy+Ua6OebU/qux6Q5wEQBNZaxRmAkUtF8zIRQHIS1/PEhhkuxi/OBNgFPmkXnV6XjnsTc09EaYBlS4yA6JUOS0YxYZ263sXjjGUqbesNUdKTIJE+fhtakfhFmqVoVts6k/QU0a+whLE1UR9KNZJFec6N337nRWAz07Kd2zEHtIR7Ub4qL7AGAGfg151iZWiwpAZKg9fh56Z6ld6afyrJrE575J6St5LfsLd3w2bpT26kbrvrB6WTqci/6/T9LFVyuDwWCchI5OfK3vonszSzNp7AAIxTccnLsMNXU0dqLTGuCi+22ba1h+bEeu6EwNtlLWVDPh4jE1jTsL0RDddTv3OjEylZ+xbaJBhrbLtYk55QCMYw0GLhgGY92K+kMhaHEAIHysyzMaOT22j1Jsw2lPlEtpQbwYVSt7hGoENVRiKfexpWhcJ8YyCZbgegedyvvmTI=
+  app: desolate-cove-28283
+  on:
+    repo: nysky1/node-timeentry-react
