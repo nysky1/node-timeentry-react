@@ -1,0 +1,37 @@
+header {
+    height:60px;
+    max-width: 1180px;
+    /* padding: 20px 0 0 20px; */
+    font-weight: normal;
+    margin:0 auto;
+    text-align: center;
+}
+header a,header a:hover, header a:visited{
+    color:white;
+    text-decoration: none;
+    font-weight: normal;
+}
+header a:hover{
+    text-decoration: underline;
+}
+.logo {
+    font-size: 16px;
+    color:white;
+    float:left;
+    padding:20px 10px;
+}
+.menu {
+    width:50%;
+    float:right;
+    padding: 20px 10px;
+}
+.menu ul {
+    float:right;
+    padding:0;
+    margin:0;
+}
+.menu li {
+    float:left;
+    list-style-type: none;
+    padding-left:5px;
+}
