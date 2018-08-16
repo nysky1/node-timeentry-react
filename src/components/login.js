@@ -1,9 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Register from './register';
 
 export default class Login extends React.Component {
-    render() {
+    render() { 
         return (
             <div className="mainBox">
                 <div className="mainInnerBox noTop">
@@ -20,7 +20,6 @@ export default class Login extends React.Component {
                     </form>
                     <div className="lnkBack">
                         <Link to="/register">Need an account?</Link>
-                        <Route path="/register" component={Register} />
                     </div>
                 </div>
             </div>
