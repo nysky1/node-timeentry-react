@@ -1,11 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Switch,
-    Redirect
+    Link
   } from 'react-router-dom'
 import './navBar.css';
 export default class SignedOut extends React.Component {

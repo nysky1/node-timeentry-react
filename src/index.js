@@ -1,16 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
-//import styles from './index.scss';
+import { ConnectedRouter } from 'react-router-redux';
 import './index.css';
 import TimeEntry from './components/timeentry';
-import store from './store';
+import store, {history} from './store';
 
 
 ReactDOM.render(
     <Provider store={store}>
-        <TimeEntry />
+        <ConnectedRouter history={history}>
+            <TimeEntry />
+        </ConnectedRouter>
     </Provider>,
     document.getElementById('root')
   );
+
  

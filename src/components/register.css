@@ -1,0 +1,24 @@
+/* BEGIN Register */
+
+/* BEGIN - NAME SPACING */
+.divFirstName,.divLastName {
+    width:48%;
+    float:left;
+}
+.divSpacer {
+    float:left;
+    width:4%;
+}
+/*END - NAME SPACING */
+
+#frmSignUp {
+    background: white;
+    padding:10px;
+}
+.btnRegister {
+    margin-top:15px;
+}
+.lnkBack {
+    margin-top:15px;
+}
+/* END Register */

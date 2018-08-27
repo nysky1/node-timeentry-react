@@ -1,0 +1,46 @@
+
+/* BEGIN - List View   */
+.js-results a {
+    text-decoration: none;
+    color: #2862b7;
+}
+.js-panel-list-wrapper {
+    clear:left;
+    display:block;
+    width:100%;
+    min-height: 50px;
+    text-align: left;
+    border-bottom:solid 1px #dcdcdc;
+    padding:15px 10px;
+}
+.js-panel-list-wrapper:hover {
+    background: #2862b7;
+    color:white;
+    cursor: pointer;
+}
+
+
+.eventDate,.eventHours {
+    float:left;
+    margin-top:5px;
+    margin-bottom:5px;
+    font-weight: bold;
+}
+.eventName {
+    display:block;
+    clear:left;
+}
+.eventNameSpacer {
+    width:20px;
+    float:left;
+}
+.editButton {
+    float:right;
+    position: relative;
+    right: 0;
+    top:15px;
+    display:none;
+}
+.js-panel-list-wrapper:hover .editButton {
+    display:block;
+}

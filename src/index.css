@@ -74,3 +74,42 @@ fieldset input,fieldset textarea,fieldset button,fieldset a {
     margin: 10px auto 10px ;
     transition: opacity 0.4s;
 }
+.btnStandard {
+    background: #00c57f;
+    border:0;
+    border-radius: 4px;
+    color:white;
+    text-align: center;
+}
+.btnStandard:hover {
+    cursor: pointer;
+    background: #29CA91;
+}
+.btnAdmin {
+    background: #fff;
+    border-color: #dcdcdc;
+    border-radius: 4px;
+    color:#2862b7 !important;
+    text-align: center;
+}
+ /*links */
+ a, a:visited {
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a .fa {
+    padding-right:5px;
+  }
+  input[type='submit']:disabled {
+    background: #dddddd;
+  }
+
+  .formInputError{  
+    color: #DA5B59;
+    text-align: left;
+    font-size:16px;
+}

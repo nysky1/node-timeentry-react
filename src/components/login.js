@@ -1,21 +1,34 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Register from './register';
+import {Field, reduxForm, focus} from 'redux-form';
+import Input from './input';
+import {fetchUserLogin} from '../actions/index';
+import Alert from './alert';
+import './login.css';
+import { required, nonEmpty, email} from './validators';
 
-export default class Login extends React.Component {
+export class Login extends React.Component {
+    onSubmit(values) {   
+        const username = values.username;
+        const pwd = values.password;
+        this.props.fetchUserLogin(username, pwd);
+    }
     render() { 
         return (
             <div className="mainBox">
                 <div className="mainInnerBox noTop">
                     <h1 className="mainInnerBoxHeader">Login</h1>
-                    <form id="frmLogin">
+                    <form id="frmLogin" onSubmit={this.props.handleSubmit(this.onSubmit.bind(this))} method="post" >
                         <fieldset>
-                            <div className="errorDesc" hidden aria-live="assertive"></div>
-
-                            <input id="username" value="" placeholder="Username" aria-label="Enter a Username" className="text-input" required />
-                            <input id="password" type="password" value="" placeholder="Password" aria-label="Enter a Password" className="text-input" required
+                            <Alert uiAlert={this.props.uiAlert}   />
+                            <Field component={Input}
+                                name="username" validate={[required, nonEmpty]}  type="text" value="" placeholder="Username" aria-label="Enter a Username" className="text-input" 
                             />
-                            <button className="btnLogin btnStandard">Login</button>
+                            <Field component={Input}
+                                name="password" validate={[required, nonEmpty]}  type="password" value="" placeholder="Password" aria-label="Enter a Password" className="text-input"
+                            />
+                            <input type="submit" name="login" value="Login" className="btnLogin btnStandard"/>
                         </fieldset>
                     </form>
                     <div className="lnkBack">
@@ -23,7 +36,14 @@ export default class Login extends React.Component {
                     </div>
                 </div>
             </div>
-
         )
     }
 }
+
+const mapStateToProps = state => ({
+    uiAlert: state.appState
+});
+
+export default reduxForm({
+    form: 'Login',
+})(connect(mapStateToProps, {fetchUserLogin})(Login));
