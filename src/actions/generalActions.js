@@ -27,3 +27,21 @@ export function resetAlertMessage(){
         type: 'RESET_ALERT_MESSAGE'
     };
 };
+
+// Show alert message
+export const SHOW_CONFIRM_MESSAGE = 'SHOW_CONFIRM_MESSAGE';
+
+export function showConfirmMessage(){
+    return{
+        type: 'SHOW_CONFIRM_MESSAGE'
+    };
+};
+
+// Reset alert message
+export const RESET_CONFIRM_MESSAGE = 'RESET_CONFIRM_MESSAGE';
+
+export function resetConfirmMessage(){
+    return{
+        type: 'RESET_CONFIRM_MESSAGE'
+    };
+};

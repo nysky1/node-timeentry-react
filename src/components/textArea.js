@@ -29,7 +29,7 @@ export default class TextArea extends React.Component {
                     id={this.props.input.name}
                     ref={textarea => (this.textarea = textarea)}
                     placeholder={this.props.placeholder}
-                    value={this.props.input.value}
+                    
                 />
                 {error}
                 {warning}

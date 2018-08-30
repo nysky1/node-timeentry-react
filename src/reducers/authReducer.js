@@ -13,7 +13,6 @@ export default function reducer(state = initialState, action) {
     switch (action.type) {
         // Fetch Basic Info about User
         case actionTypes.FETCH_USER_BASIC_INFO_REQUEST_SUCCESS: {
-          console.log('here');
           return {
             ...state,
             id: action.response._id,

@@ -18,8 +18,6 @@ export class NewActivity extends React.Component {
         this.props.createActivity(activity, activityDate, activityDuration);
     }
     render() {
-        let isDev = (getEnv().ENV == "development");
-        let devDefaultVal = (isDev) ? "2018-10-01" : "";
         return (
             <div className="mainBox">
                 <div className="mainInnerBox noTop">
@@ -31,7 +29,7 @@ export class NewActivity extends React.Component {
                                 name="activity" validate={[required, nonEmpty]} value="" placeholder="Describe your Activity" aria-label="Describe your Activity" className="text-input"
                             />
                             <Field component={Input}
-                                name="activityDate" validate={[required, nonEmpty]} defaultValue={devDefaultVal} placeholder="Date of Activity (YYYY-MM-DD)" aria-label="Enter an Activity Date" className="text-input"
+                                name="activityDate" type="date" validate={[required, nonEmpty]} placeholder="Date of Activity (MM-DD-YYYY)" aria-label="Enter an Activity Date" className="text-input"
                             />
                             <Field component={Input}
                                 name="activityDuration" validate={[required, nonEmpty]} type="number" step="0.25" required value="" placeholder="Hours of Activity" aria-label="Enter the Activity duration in hours" className="text-input"

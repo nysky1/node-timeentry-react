@@ -99,7 +99,6 @@ export function createUser(firstName, lastName, email, username, password) {
     };
   }
 
-
 const handleCreateUserResponse = (response, dispatch) => {
     dispatch({
         type: CREATE_USER_REQUEST_SUCCESS,
