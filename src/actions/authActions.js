@@ -15,7 +15,6 @@ const handleFetchUserResponse = (response,dispatch) => {
         type: FETCH_USER_BASIC_INFO_REQUEST_SUCCESS,
         response,
     });
-    //dispatch(push('/dashboard'));
 }
 
 export function fetchUserBasicInfo() {

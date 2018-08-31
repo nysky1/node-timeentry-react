@@ -1,15 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchUserActivities } from '../actions/index';
+import { fetchUserActivities //, resetLoaderMessage 
+        } from '../actions/index';
 import PropTypes from 'prop-types'
 import './activities.css'
 
 export class Activities extends React.Component {
     
-    componentDidMount(props) {
-        console.log('activities...');
-        this.props.fetchUserActivities();
+    componentDidMount() {
+        //console.log('mounting activities...--------');
+        //console.log(this.props.appState.isFetchingUserBasicInfo);
+        //if (!this.props.appState.isFetchingUserBasicInfo) {
+            
+            this.props.fetchUserActivities();
+        //}
+        //this.props.resetLoaderMessage();
     }  
     
     createResults = () => {
@@ -35,7 +41,9 @@ export class Activities extends React.Component {
                 <h1 className="mainInnerBoxHeader">Activity Log</h1>
                 <div className="mainBox backgroundInverse">
                     <div className="mainInnerBox noTop">
-                        <div className="js-results" aria-live="assertive">{this.createResults()}</div>
+                        <div className="js-results" aria-live="assertive">
+                        {this.createResults()}
+                        </div>
                     </div>
                 </div>
             </main>
@@ -43,13 +51,15 @@ export class Activities extends React.Component {
     }
 }
 
-Activities.propTypes = {
-    activities: PropTypes.array.isRequired
-}
+// Activities.propTypes = {
+//     activities: PropTypes.array.isRequired
+// }
 
 const mapStateToProps = state => ({
     activities: state.timeEntry.activities,
+    appState: state.appState,
     user: state.user,
 });
 
-export default connect(mapStateToProps, { fetchUserActivities })(Activities);
+export default connect(mapStateToProps, { fetchUserActivities //,resetLoaderMessage 
+})(Activities);

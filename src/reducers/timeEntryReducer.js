@@ -2,7 +2,6 @@ import * as actionTypes from '../actions';
 
 const initialState = {
     activities: [],
-    isFetching: false,
     activity: [],
     hasConfirm: false
 };
@@ -21,12 +20,7 @@ export const timeEntryReducer = (state = initialState, action) => {
                 hasConfirm: false
             };
         }
-        case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {
-            return {
-                ...state,
-                activities: action.response.activities,
-            }
-        }
+
         case actionTypes.FETCH_USER_ACTIVITY_CREATE_REQUEST_SUCCESS:
             return {
                 ...state,
@@ -34,22 +28,38 @@ export const timeEntryReducer = (state = initialState, action) => {
             }
         case actionTypes.FETCH_USER_ACTIVITY_REQUEST_TRIGGERED: {
             return {
-                ...state,
-                isFetching: true
+                ...state
             }
         }
         case actionTypes.FETCH_USER_ACTIVITY_REQUEST_FAILURE: {
             return {
-                ...state,
-                isFetching: false
+                ...state
             }
         }
         case actionTypes.FETCH_USER_ACTIVITY_REQUEST_SUCCESS:
             return {
                 ...state,
-                activity: action.response,
-                isFetching: false
+                activity: action.response
             }
+        case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED: {
+            return {
+                ...state
+            }
+        }
+        case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {
+            return {
+                ...state,
+                activities: action.response.activities,
+            }
+        }
+        case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_FAILURE: {
+            return {
+                ...state
+            }
+        }
+        default: {
+            return state;
+        }
 
     }
     return state;

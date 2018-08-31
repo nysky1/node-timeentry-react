@@ -8,6 +8,7 @@ export const FETCH_USER_ACTIVITIES_REQUEST_FAILURE = 'FETCH_USER_ACTIVITIES_REQU
 
 
 export function fetchUserActivities() {
+    //console.log('fetchingactivities...')
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -144,14 +145,11 @@ export function removeActivity(activityId) {
         headers: {
             'Content-Type': 'application/json',
             Authorization: 'Bearer ' + sessionStorage.getItem(appConfig.TOKEN_CONTENT_KEY)
-        },
-        body: JSON.stringify({
-            eventId: activityId
-          }),
+        }
     });
     return {
         onRequest: REMOVE_USER_ACTIVITY_REQUEST_TRIGGERED,
-        onSuccess: handleRemoveUserActivityResponse,
+        onSuccess: handleRemoveUserActivityResponse, //ensure returns some body and 200
         onFailure: REMOVE_USER_ACTIVITY_REQUEST_FAILURE,
         promise,
     };

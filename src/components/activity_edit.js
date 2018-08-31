@@ -28,12 +28,6 @@ export class ActivityEdit extends React.Component {
         this.props.showConfirmMessage();
     }
     render() {
-        //console.log(this.props.timeEntry.isFetching);
-        //console.log('activity' + this.props.timeEntry.activity.activity)
-        //if (this.props.isFetching) {
-        //    return (<div>Loading...</div>)
-        //}
-        //else {
         return (
             <div className="mainBox">
                 <div className="mainInnerBox noTop">
@@ -85,3 +79,12 @@ InitializeForm = connect(state => ({
 }), { saveActivity, fetchUserActivity, showConfirmMessage })(InitializeForm)
 
 export default InitializeForm;
+
+// const mapStateToProps = (state) => ({ 
+//     initialValues: state.timeEntry.activity,
+//     isFetching: state.timeEntry.isFetching,
+//     user: state.user,
+//     uiAlert: state.appState,
+//     timeEntry: state.timeEntry
+// })
+// export default connect(mapStateToProps, { saveActivity, fetchUserActivity, showConfirmMessage })(reduxForm({ form: 'ActivityEdit', enableReinitialize: true })(ActivityEdit))

@@ -2,14 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import hasToken from '../helpers/token'
-import { fetchUserBasicInfo, resetAlertMessage } from '../actions/';
+import { fetchUserBasicInfo, resetAlertMessage //, resetLoaderMessage 
+} from '../actions/';
 
 class GlobalLoader extends React.Component {
     constructor(props) {
         super(props);
+        
         //detects router change and clears uiAlert
         this.props.history.listen((location, action) => {
+            //console.log('resetting messages');
             this.props.resetAlertMessage();
+            //
+            //this.props.resetLoaderMessage();
         });
     }   
     componentDidMount() {
@@ -22,6 +27,7 @@ class GlobalLoader extends React.Component {
     }
 
     render() {
+        console.log('re-rendering global');
         return (
             <React.Fragment>
                 {this.props.appState.isFetchingUserBasicInfo ?
@@ -40,7 +46,8 @@ class GlobalLoader extends React.Component {
 
 const mapStateToProps = state => ({
     appState: state.appState,
-    user: state.user,
+    user: state.user
 });
 
-export default withRouter(connect(mapStateToProps, { fetchUserBasicInfo, resetAlertMessage })(GlobalLoader));
+export default withRouter(connect(mapStateToProps, { fetchUserBasicInfo, resetAlertMessage//, resetLoaderMessage 
+})(GlobalLoader));

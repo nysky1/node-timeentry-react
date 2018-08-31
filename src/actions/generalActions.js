@@ -15,33 +15,38 @@ export const SERVER_ERROR_REDIRECT = 'SERVER_ERROR_REDIRECT';
  
 // Show alert message
 export const SHOW_ALERT_MESSAGE = 'SHOW_ALERT_MESSAGE';
-
-// Show alert message
+// Show error message
 export const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
 // Reset alert message
 export const RESET_ALERT_MESSAGE = 'RESET_ALERT_MESSAGE';
-
 export function resetAlertMessage(){
     return{
         type: 'RESET_ALERT_MESSAGE'
     };
 };
 
-// Show alert message
+// Show xconfirm message
 export const SHOW_CONFIRM_MESSAGE = 'SHOW_CONFIRM_MESSAGE';
-
 export function showConfirmMessage(){
     return{
         type: 'SHOW_CONFIRM_MESSAGE'
     };
 };
 
-// Reset alert message
+// Reset confirm message
 export const RESET_CONFIRM_MESSAGE = 'RESET_CONFIRM_MESSAGE';
-
 export function resetConfirmMessage(){
     return{
         type: 'RESET_CONFIRM_MESSAGE'
     };
 };
+
+// // Show error message
+// export const SHOW_LOADER_MESSAGE = 'SHOW_LOADER_MESSAGE';
+// export const HIDE_LOADER_MESSAGE = 'HIDE_LOADER_MESSAGE';
+// export function resetLoaderMessage(){
+//     return{
+//         type: 'HIDE_LOADER_MESSAGE'
+//     };
+// };

@@ -42,10 +42,13 @@ export default function apiMiddleware({ dispatch, getState }) {
       // if action dispatched is not a promise, just send it to the next processor
       return next(action);
     }
- 
+    
+    //dispatch({type: actionTypes.SHOW_LOADER_MESSAGE});
     if (typeof onRequest === 'function') {
+      console.log('making middleware request ' + onRequest);
       onRequest(dispatch, getState, ...rest);
     } else {
+      console.log('making middleware request ' + onRequest);
       dispatch({ type: onRequest, ...rest });
     }
  
@@ -58,7 +61,10 @@ export default function apiMiddleware({ dispatch, getState }) {
       .then(checkStatus.bind(null, dispatch))
       .then(parseJSON)
       .then((response) => {
+        
         try {
+    //dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
+    console.log('Finishing middleware request ' + onSuccess);
           if (typeof onSuccess === 'function') {
             onSuccess(response, dispatch, getState, ...rest);
           } else {
@@ -71,7 +77,8 @@ export default function apiMiddleware({ dispatch, getState }) {
         }
       })
       .catch((error) => {
-        
+        console.log('error');
+        //  dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
         if (error.type !== 'ActionError' || error.type === 'Unauthorized') {
           if (typeof onFailure === 'function') {
             onFailure(error.response, dispatch, getState, ...rest);

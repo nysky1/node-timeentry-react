@@ -14,14 +14,13 @@ import ActivityEdit from './activity_edit';
 
 
 export class TimeEntry extends React.Component  {
-    //fetchUserActivities() {
-        //this.props.fetchUserActivities(this.props.user.id);
-    //}
+
     render() {
         return (    
             <React.Fragment>
                 <Switch>
                     <GlobalLoader>
+                    {/* <GeneralLoader> */}
                         <NavBar isAuth={this.props.user.isLoggedIn} />
                         <main>
                             <Switch>
@@ -34,6 +33,7 @@ export class TimeEntry extends React.Component  {
                                 <PrivateRoute exact path="/activity_edit/:eventId" component={ActivityEdit} />
                             </Switch>
                         </main>
+                        {/* </GeneralLoader> */}
                     </GlobalLoader>
                 </Switch>
             </React.Fragment>   
