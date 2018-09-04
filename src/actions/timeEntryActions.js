@@ -6,6 +6,10 @@ export const FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED = 'FETCH_USER_ACTIVITIES_RE
 export const FETCH_USER_ACTIVITIES_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITIES_REQUEST_SUCCESS';
 export const FETCH_USER_ACTIVITIES_REQUEST_FAILURE = 'FETCH_USER_ACTIVITIES_REQUEST_FAILURE';
 
+const handleUserActivitiesSuccess = (response,dispatch) => {
+    console.log('dispatching success');
+    dispatch( { type: FETCH_USER_ACTIVITIES_REQUEST_SUCCESS, response})
+}
 
 export function fetchUserActivities() {
     //console.log('fetchingactivities...')
@@ -17,7 +21,7 @@ export function fetchUserActivities() {
     });
     return {
         onRequest: FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED,
-        onSuccess: FETCH_USER_ACTIVITIES_REQUEST_SUCCESS,
+        onSuccess: handleUserActivitiesSuccess,
         onFailure: FETCH_USER_ACTIVITIES_REQUEST_FAILURE,
         promise,
     };
@@ -34,7 +38,6 @@ const handleUserActivityResponse = (response, dispatch) => {
     });
 }
 
-
 export function fetchUserActivity(eventId) {
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${eventId}`, {
         headers: {
@@ -49,7 +52,6 @@ export function fetchUserActivity(eventId) {
         promise,
     };
 }
-
 
 export const FETCH_USER_ACTIVITY_CREATE_REQUEST_TRIGGERED = 'FETCH_USER_ACTIVITY_CREATE_REQUEST_TRIGGERED';
 export const FETCH_USER_ACTIVITY_CREATE_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITY_CREATE_REQUEST_SUCCESS';
@@ -101,7 +103,6 @@ const handleEditUserActivityResponse = (response, dispatch) => {
 }
 
 export function saveActivity(activityId,activity,activityDate,activityDuration) {
-
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activityId}`, {
         method: 'PUT',
         headers: {

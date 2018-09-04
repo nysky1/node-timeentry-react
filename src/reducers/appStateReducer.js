@@ -4,11 +4,27 @@ const initialState = {
   hasUIAlert: null,
   uiMessage: null,
   uiMessageClass: "",
-  isFetchingUserBasicInfo: false
+  isFetchingUserBasicInfo: false,
+  isFetchingGlobal: false
 };
 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
+    case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED: {
+      console.log('changing state to true');
+      return {
+        ...state,
+        isFetchingGlobal: true,
+      };
+    }
+    case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {
+      console.log('changing state to false');
+        
+        return {
+          ...state,
+          isFetchingGlobal: initialState.isFetchingGlobal,
+        };
+      }
     case actionTypes.FETCH_USER_BASIC_INFO_REQUEST_TRIGGERED: {
       return {
         ...state,
@@ -26,18 +42,8 @@ export default function reducer(state = initialState, action) {
         isFetchingUserBasicInfo: initialState.isFetchingUserBasicInfo,
       };
     }
-    case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED: {
-      return {
-        ...state,
-        isFetchingUserBasicInfo: true,
-      };
-    }
-    case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {
-      return {
-        ...state,
-        isFetchingUserBasicInfo: initialState.isFetchingUserBasicInfo,
-      };
-    }
+    
+    
     case actionTypes.SHOW_ALERT_MESSAGE: {
       return {
         ...state,

@@ -5,6 +5,7 @@ import NavBar from './navbar';
 import Home from './home';
 import Login from './login';
 import GlobalLoader from './globalLoader';
+import GeneralLoader from './generalLoader';
 import Dashboard from './dashboard';
 import Register from './register';
 import PrivateRoute from './privateRoute';
@@ -20,7 +21,7 @@ export class TimeEntry extends React.Component  {
             <React.Fragment>
                 <Switch>
                     <GlobalLoader>
-                    {/* <GeneralLoader> */}
+                    <GeneralLoader>
                         <NavBar isAuth={this.props.user.isLoggedIn} />
                         <main>
                             <Switch>
@@ -33,7 +34,7 @@ export class TimeEntry extends React.Component  {
                                 <PrivateRoute exact path="/activity_edit/:eventId" component={ActivityEdit} />
                             </Switch>
                         </main>
-                        {/* </GeneralLoader> */}
+                        </GeneralLoader>
                     </GlobalLoader>
                 </Switch>
             </React.Fragment>   

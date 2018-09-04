@@ -1,18 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { fetchUserActivities //, resetLoaderMessage 
-        } from '../actions/index';
+import { fetchUserActivities } from '../actions/index';
 import PropTypes from 'prop-types'
 import './activities.css'
 
 export class Activities extends React.Component {
     
     componentDidMount() {
-        //console.log('mounting activities...--------');
+        console.log('mounting activities...--------');
         //console.log(this.props.appState.isFetchingUserBasicInfo);
         //if (!this.props.appState.isFetchingUserBasicInfo) {
-            
             this.props.fetchUserActivities();
         //}
         //this.props.resetLoaderMessage();
@@ -61,5 +59,4 @@ const mapStateToProps = state => ({
     user: state.user,
 });
 
-export default connect(mapStateToProps, { fetchUserActivities //,resetLoaderMessage 
-})(Activities);
+export default connect(mapStateToProps, { fetchUserActivities })(Activities);

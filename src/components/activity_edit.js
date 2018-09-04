@@ -14,7 +14,8 @@ import { required, nonEmpty, email } from './validators';
 export class ActivityEdit extends React.Component {
     componentDidMount() {
         //console.log('fettching activity');
-        this.props.fetchUserActivity(this.props.match.params.eventId);
+        const eventId = this.props.match.params.eventId;
+        this.props.fetchUserActivity(eventId);
     }
 
     onSubmit(values) {

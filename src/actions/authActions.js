@@ -11,9 +11,10 @@ const UI_ALERT_MESSAGES = {
 }
 
 const handleFetchUserResponse = (response,dispatch) => {
+
     dispatch({
         type: FETCH_USER_BASIC_INFO_REQUEST_SUCCESS,
-        response,
+        response
     });
 }
 
@@ -44,7 +45,6 @@ const handleLoginResponse = (response, dispatch) => {
       type: FETCH_USER_LOGIN_REQUEST_SUCCESS,
       response,
   });
-  
   dispatch(push('/dashboard'));
 };
 
@@ -59,10 +59,10 @@ const handleLoginResponse = (response, dispatch) => {
 export function fetchUserLogin(username, password) {
     const promise = fetch(`${appConfig.USER_LOGIN_ENDPOINT}`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: {Accept: 'application/json','Content-Type': 'application/json'},
         body: JSON.stringify({
-          username,
-          password,
+          username: username,
+          password: password,
         }),
     });
     return {
@@ -79,6 +79,7 @@ export const FETCH_USER_SIGNUP_REQUEST_FAILURE = 'FETCH_USER_SIGNUP_REQUEST_FAIL
 export const CREATE_USER_REQUEST_SUCCESS = 'CREATE_USER_REQUEST_SUCCESS';
 
 export function createUser(firstName, lastName, email, username, password) {
+    
     const promise = fetch(`${appConfig.USER_ENDPOINT}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

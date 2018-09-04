@@ -43,15 +43,16 @@ export default function apiMiddleware({ dispatch, getState }) {
       return next(action);
     }
     
-    //dispatch({type: actionTypes.SHOW_LOADER_MESSAGE});
+
     if (typeof onRequest === 'function') {
-      console.log('making middleware request ' + onRequest);
-      onRequest(dispatch, getState, ...rest);
+      //console.log('making middleware request func - ' + onRequest);
+      onRequest(dispatch, getState);
     } else {
-      console.log('making middleware request ' + onRequest);
+      //console.log('making middleware request onReq - ' + onRequest);
       dispatch({ type: onRequest, ...rest });
     }
  
+        //dispatch({type: actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED});
     return promise
       .catch((error) => {
         dispatch({ type: actionTypes.NOT_FOUND_REDIRECT });
@@ -62,26 +63,25 @@ export default function apiMiddleware({ dispatch, getState }) {
       .then(parseJSON)
       .then((response) => {
         
-        try {
-    //dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
-    console.log('Finishing middleware request ' + onSuccess);
+          //dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
           if (typeof onSuccess === 'function') {
-            onSuccess(response, dispatch, getState, ...rest);
+            //console.log('Finishing middleware request func - ' + response);
+            //console.log(onSuccess);
+            onSuccess(response, dispatch, getState);
+            
           } else {
+            //console.log('Finishing middleware request onSucc - ' + onSuccess);
             dispatch({ type: onSuccess, response, ...rest });
+            
           }
-        } catch (e) {
-          e.message = `Action success error: ${e.message}`;
-          e.type = 'ActionError';
-          throw e;
-        }
+        
       })
       .catch((error) => {
-        console.log('error');
+        //console.log('error');
         //  dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
         if (error.type !== 'ActionError' || error.type === 'Unauthorized') {
           if (typeof onFailure === 'function') {
-            onFailure(error.response, dispatch, getState, ...rest);
+            onFailure(error.response, dispatch, getState);
           } else {
             dispatch({ type: onFailure, error: error.response, ...rest });
           }
