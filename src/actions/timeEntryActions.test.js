@@ -113,6 +113,7 @@ describe('Activity specific action creators', () => {
             sessionStorage.setItem(appConfig.TOKEN_CONTENT_KEY, sendToken);
             sessionStorage.setItem(appConfig.USER_CONTENT_KEY, userIdToken);
 
+            //const eventId = '5b843eaf034d980e105fc1b6';
             const activity = 
                 {activityId:"5b843eaf034d980e105fc1b6",activity:"1",activityDate:"2018-10-01",activityDuration:"2"}
             const response = "OK";
@@ -122,7 +123,7 @@ describe('Activity specific action creators', () => {
             return store.dispatch(saveActivity(activity))
                 .then(() => {
                     const dispatchedActions = store.getActions()
-                    expect(fetch).toHaveBeenCalledWith(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activity}`, {
+                    expect(fetch).toHaveBeenCalledWith(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activity.activityId}`, {
                         headers: {
                             Authorization: `Bearer ${sendToken}`,
                             'Content-Type': 'application/json'
