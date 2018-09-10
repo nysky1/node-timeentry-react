@@ -11,15 +11,12 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED: {
-      console.log('changing state to true');
       return {
         ...state,
         isFetchingGlobal: true,
       };
     }
-    case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {
-      console.log('changing state to false');
-        
+    case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {        
         return {
           ...state,
           isFetchingGlobal: initialState.isFetchingGlobal,
@@ -42,8 +39,6 @@ export default function reducer(state = initialState, action) {
         isFetchingUserBasicInfo: initialState.isFetchingUserBasicInfo,
       };
     }
-    
-    
     case actionTypes.SHOW_ALERT_MESSAGE: {
       return {
         ...state,
@@ -68,20 +63,6 @@ export default function reducer(state = initialState, action) {
         uiMessageClass: initialState.uiMessageClass
       };
     }
-    // case actionTypes.SHOW_LOADER_MESSAGE: {
-    //   console.log('showing loader');
-    //   return {
-    //     ...state,
-    //     //isShowingLoader: true
-    //   };
-    // }
-    // case actionTypes.HIDE_LOADER_MESSAGE: {
-    //   console.log('hiding loader');
-    //   return {
-    //     ...state,
-    //     //isShowingLoader: false
-    //   };
-    // }
     default: {
       return state;
     }

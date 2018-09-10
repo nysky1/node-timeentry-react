@@ -8,13 +8,8 @@ import { fetchUserBasicInfo, resetAlertMessage //, resetLoaderMessage
 class GlobalLoader extends React.Component {
     constructor(props) {
         super(props);
-        
-        //detects router change and clears uiAlert
         this.props.history.listen((location, action) => {
-            //console.log('resetting messages');
             this.props.resetAlertMessage();
-            //
-            //this.props.resetLoaderMessage();
         });
     }   
     componentDidMount() {

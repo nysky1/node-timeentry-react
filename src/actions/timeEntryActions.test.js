@@ -123,7 +123,7 @@ describe('Activity specific action creators', () => {
             return store.dispatch(saveActivity(activity))
                 .then(() => {
                     const dispatchedActions = store.getActions()
-                    expect(fetch).toHaveBeenCalledWith(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activity.activityId}`, {
+                    expect(fetch).toHaveBeenCalledWith(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activity}`, {
                         headers: {
                             Authorization: `Bearer ${sendToken}`,
                             'Content-Type': 'application/json'

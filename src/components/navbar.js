@@ -4,7 +4,7 @@ import SignedOut from './signedOut';
 import SignedIn from './signedIn';
 
 import './navBar.css';
-export class NavBar extends React.Component {
+export default class NavBar extends React.Component {
     
     render() {            
             if (this.props.isAuth) {
@@ -37,9 +37,3 @@ export class NavBar extends React.Component {
             }
     }
 }
-
-const mapStateToProps = state => ({
-    //loggedIn: state.user.currentUser !== null
-});
-
-export default connect(mapStateToProps)(NavBar);

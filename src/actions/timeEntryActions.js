@@ -32,6 +32,7 @@ export const FETCH_USER_ACTIVITY_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITY_REQUEST_
 export const FETCH_USER_ACTIVITY_REQUEST_FAILURE = 'FETCH_USER_ACTIVITY_REQUEST_FAILURE';
 
 const handleUserActivityResponse = (response, dispatch) => { 
+    console.log(response);
     dispatch({
         type: FETCH_USER_ACTIVITY_REQUEST_SUCCESS,
         response,

@@ -43,7 +43,7 @@ export class TimeEntry extends React.Component  {
 }
 
 const mapStateToProps = state => ({
-    appState: state.appState,
+
     user: state.user,
 });
 

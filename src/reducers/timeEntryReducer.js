@@ -20,41 +20,20 @@ export const timeEntryReducer = (state = initialState, action) => {
                 hasConfirm: false
             };
         }
-
         case actionTypes.FETCH_USER_ACTIVITY_CREATE_REQUEST_SUCCESS:
             return {
                 ...state,
                 activities: action.response.activities
             }
-        case actionTypes.FETCH_USER_ACTIVITY_REQUEST_TRIGGERED: {
-            return {
-                ...state
-            }
-        }
-        case actionTypes.FETCH_USER_ACTIVITY_REQUEST_FAILURE: {
-            return {
-                ...state
-            }
-        }
         case actionTypes.FETCH_USER_ACTIVITY_REQUEST_SUCCESS:
             return {
                 ...state,
                 activity: action.response
             }
-        case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED: {
-            return {
-                ...state
-            }
-        }
         case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_SUCCESS: {
             return {
                 ...state,
                 activities: action.response.activities,
-            }
-        }
-        case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_FAILURE: {
-            return {
-                ...state
             }
         }
         default: {
@@ -62,5 +41,5 @@ export const timeEntryReducer = (state = initialState, action) => {
         }
 
     }
-    return state;
+   
 }
