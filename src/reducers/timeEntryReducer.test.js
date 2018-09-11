@@ -68,8 +68,6 @@ describe('the time entry state changes in response to events', () => {
     };
     let state = timeEntryReducer( initialState, { type: actionTypes.FETCH_USER_ACTIVITY_REQUEST_SUCCESS, 
         response: {
-            ...initialState,
-            activity: {}
         } 
     } );
     expect( state ).toEqual( responseState );

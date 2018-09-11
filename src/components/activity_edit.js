@@ -3,21 +3,31 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input';
-import { saveActivity, fetchUserActivity, showConfirmMessage } from '../actions/index';
+import { saveActivity, fetchUserActivity, showConfirmMessage, resetConfirmMessage } from '../actions/index';
 import Alert from './alert';
 //import './activity_new.css';
 import TextArea from './textArea';
 import Confirm from './confirm';
 import { required, nonEmpty, email } from './validators';
+import { removeActivity } from '../actions/index';
 
 
 export class ActivityEdit extends React.Component {
+    constructor(props) {
+        super(props);
+    }
     componentDidMount() {
         //console.log('fettching activity');
         const eventId = this.props.match.params.eventId;
         this.props.fetchUserActivity(eventId);
     }
-
+    onConfirm() {
+        const eventId = this.props.match.params.eventId;
+        this.props.removeActivity(eventId);
+    }
+    onReset() {
+        this.props.resetConfirmMessage();
+    }
     onSubmit(values) {
         const eventId = this.props.match.params.eventId;
         const activity = values.activity;
@@ -58,7 +68,7 @@ export class ActivityEdit extends React.Component {
                         </div>
                     </form>
                 </div>
-                <Confirm isShown={this.props.timeEntry.hasConfirm} eventId={this.props.match.params.eventId} />
+                <Confirm onReset={this.onReset.bind(this)} onConfirm={this.onConfirm.bind(this)} isShown={this.props.timeEntry.hasConfirm} eventId={this.props.match.params.eventId} />
             </div>
 
         )
@@ -77,7 +87,7 @@ InitializeForm = connect(state => ({
     user: state.user,
     uiAlert: state.appState,
     timeEntry: state.timeEntry
-}), { saveActivity, fetchUserActivity, showConfirmMessage })(InitializeForm)
+}), { saveActivity, fetchUserActivity, showConfirmMessage, resetConfirmMessage, removeActivity })(InitializeForm)
 
 export default InitializeForm;
 

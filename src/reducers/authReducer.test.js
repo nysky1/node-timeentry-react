@@ -14,7 +14,7 @@ describe('the authorization state changes in response to events', () => {
   it( 'fetches basic user info',  () => {
     const responseState = {
         ...initialState,
-        id: undefined,
+        id: "abc",
         username: 'abc',
         email: 'aa@abc.com',
         isLoggedIn: true,
@@ -22,8 +22,8 @@ describe('the authorization state changes in response to events', () => {
     };
     let state = AuthReducer( initialState, { type: actionTypes.FETCH_USER_BASIC_INFO_REQUEST_SUCCESS, 
         response: {
-            ...initialState,
-            id: undefined,
+           
+            _id: "abc",
             username: 'abc',
             email: 'aa@abc.com',
             isLoggedIn: true,

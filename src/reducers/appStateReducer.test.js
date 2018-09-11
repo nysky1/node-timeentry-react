@@ -80,14 +80,13 @@ describe('the app state changes in response to events', () => {
     const responseState = {
         ...initialState,
         hasUIAlert: true,
-        uiMessage: undefined,
+        uiMessage: "Hello",
         uiMessageClass: "green"
     };
     let state = AppStateReducer( initialState, { type: actionTypes.SHOW_ALERT_MESSAGE, 
         response: {
-            ...initialState,
             hasUIAlert: true,
-            uiMessage: undefined,
+            generalMessage: "Hello",
             uiMessageClass: "green"
         } 
     } );

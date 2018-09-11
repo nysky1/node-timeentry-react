@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link, withRouter } from 'react-
 import NavBar from './navbar';
 import Home from './home';
 import Login from './login';
+import Logout from './logout';
 import GlobalLoader from './globalLoader';
 import GeneralLoader from './generalLoader';
 import Dashboard from './dashboard';
@@ -28,6 +29,7 @@ export class TimeEntry extends React.Component  {
                                 <Route exact path="/" component={Home} />
                                 <Route path="/login" component={Login} />
                                 <Route path="/register" component={Register} />
+                                <Route path="/logout" component={Logout} />
                                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                                 <PrivateRoute exact path="/activities" component={Activities}  />
                                 <PrivateRoute exact path="/activity_new" component={NewActivity} />

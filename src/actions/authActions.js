@@ -10,7 +10,7 @@ const UI_ALERT_MESSAGES = {
     profileCreation: 'Profile created, now you can login.'
 }
 
-const handleFetchUserResponse = (response,dispatch) => {
+const handleFetchUserResponse = (response, dispatch) => {
 
     dispatch({
         type: FETCH_USER_BASIC_INFO_REQUEST_SUCCESS,
@@ -34,18 +34,27 @@ export function fetchUserBasicInfo() {
     };
 }
 
+export const HANDLE_LOGOUT = 'HANDLE_LOGOUT';
+export function handleLogout(dispatch) {
+    sessionStorage.removeItem(appConfig.TOKEN_CONTENT_KEY);
+    sessionStorage.removeItem(appConfig.USER_CONTENT_KEY);
+    return{
+        type: 'HANDLE_LOGOUT'
+    }; 
+}
+
 export const FETCH_USER_LOGIN_REQUEST_TRIGGERED = 'FETCH_USER_LOGIN_REQUEST_TRIGGERED';
 export const FETCH_USER_LOGIN_REQUEST_SUCCESS = 'FETCH_USER_LOGIN_REQUEST_SUCCESS';
 export const FETCH_USER_LOGIN_REQUEST_FAILURE = 'FETCH_USER_LOGIN_REQUEST_FAILURE';
 
 const handleLoginResponse = (response, dispatch) => {
-  sessionStorage.setItem(appConfig.TOKEN_CONTENT_KEY, response.token);
-  sessionStorage.setItem(appConfig.USER_CONTENT_KEY, response._id);
-  dispatch({
-      type: FETCH_USER_LOGIN_REQUEST_SUCCESS,
-      response,
-  });
-  dispatch(push('/dashboard'));
+    sessionStorage.setItem(appConfig.TOKEN_CONTENT_KEY, response.token);
+    sessionStorage.setItem(appConfig.USER_CONTENT_KEY, response._id);
+    dispatch({
+        type: FETCH_USER_LOGIN_REQUEST_SUCCESS,
+        response,
+    });
+    dispatch(push('/dashboard'));
 };
 
 /*
@@ -59,10 +68,10 @@ const handleLoginResponse = (response, dispatch) => {
 export function fetchUserLogin(username, password) {
     const promise = fetch(`${appConfig.USER_LOGIN_ENDPOINT}`, {
         method: 'POST',
-        headers: {Accept: 'application/json','Content-Type': 'application/json'},
+        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          username: username,
-          password: password,
+            username: username,
+            password: password,
         }),
     });
     return {
@@ -71,7 +80,7 @@ export function fetchUserLogin(username, password) {
         onFailure: FETCH_USER_LOGIN_REQUEST_FAILURE,
         promise,
     };
-  }
+}
 
 export const FETCH_USER_SIGNUP_REQUEST_TRIGGERED = 'FETCH_USER_SIGNUP_REQUEST_TRIGGERED';
 export const FETCH_USER_SIGNUP_REQUEST_SUCCESS = 'FETCH_USER_SIGNUP_REQUEST_SUCCESS';
@@ -79,16 +88,16 @@ export const FETCH_USER_SIGNUP_REQUEST_FAILURE = 'FETCH_USER_SIGNUP_REQUEST_FAIL
 export const CREATE_USER_REQUEST_SUCCESS = 'CREATE_USER_REQUEST_SUCCESS';
 
 export function createUser(firstName, lastName, email, username, password) {
-    
+
     const promise = fetch(`${appConfig.USER_ENDPOINT}`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          firstName,
-          lastName,
-          email,
-          username,
-          password
+            firstName,
+            lastName,
+            email,
+            username,
+            password
         }),
     });
     return {
@@ -97,7 +106,7 @@ export function createUser(firstName, lastName, email, username, password) {
         onFailure: FETCH_USER_SIGNUP_REQUEST_FAILURE,
         promise,
     };
-  }
+}
 
 const handleCreateUserResponse = (response, dispatch) => {
     dispatch({
@@ -105,7 +114,9 @@ const handleCreateUserResponse = (response, dispatch) => {
         response,
     });
     dispatch(push('/login'));
-    dispatch({ type: SHOW_ALERT_MESSAGE, response: {
-        generalMessage: UI_ALERT_MESSAGES.profileCreation}
-      } );
+    dispatch({
+        type: SHOW_ALERT_MESSAGE, response: {
+            generalMessage: UI_ALERT_MESSAGES.profileCreation
+        }
+    });
 };
