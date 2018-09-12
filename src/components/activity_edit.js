@@ -17,7 +17,6 @@ export class ActivityEdit extends React.Component {
         super(props);
     }
     componentDidMount() {
-        //console.log('fettching activity');
         const eventId = this.props.match.params.eventId;
         this.props.fetchUserActivity(eventId);
     }
@@ -70,9 +69,7 @@ export class ActivityEdit extends React.Component {
                 </div>
                 <Confirm onReset={this.onReset.bind(this)} onConfirm={this.onConfirm.bind(this)} isShown={this.props.timeEntry.hasConfirm} eventId={this.props.match.params.eventId} />
             </div>
-
         )
-
     }
 }
 //https://stackoverflow.com/questions/41267037/redux-form-initial-values-from
@@ -90,12 +87,3 @@ InitializeForm = connect(state => ({
 }), { saveActivity, fetchUserActivity, showConfirmMessage, resetConfirmMessage, removeActivity })(InitializeForm)
 
 export default InitializeForm;
-
-// const mapStateToProps = (state) => ({ 
-//     initialValues: state.timeEntry.activity,
-//     isFetching: state.timeEntry.isFetching,
-//     user: state.user,
-//     uiAlert: state.appState,
-//     timeEntry: state.timeEntry
-// })
-// export default connect(mapStateToProps, { saveActivity, fetchUserActivity, showConfirmMessage })(reduxForm({ form: 'ActivityEdit', enableReinitialize: true })(ActivityEdit))

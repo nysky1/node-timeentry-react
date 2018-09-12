@@ -6,16 +6,11 @@ import PropTypes from 'prop-types'
 import './activities.css'
 
 export class Activities extends React.Component {
-    
+
     componentDidMount() {
-        console.log('mounting activities...--------');
-        //console.log(this.props.appState.isFetchingUserBasicInfo);
-        //if (!this.props.appState.isFetchingUserBasicInfo) {
-            this.props.fetchUserActivities();
-        //}
-        //this.props.resetLoaderMessage();
-    }  
-    
+        this.props.fetchUserActivities();
+    }
+
     createResults = () => {
         let resultsHTML = this.props.activities.map((activity, index) => {
             return (
@@ -33,25 +28,28 @@ export class Activities extends React.Component {
         return (<ul>{resultsHTML}</ul>)
     }
     render() {
-        console.log('rendering activ');
         return (
             <main role="main">
                 <h1 className="mainInnerBoxHeader">Activity Log</h1>
                 <div className="mainBox backgroundInverse">
                     <div className="mainInnerBox noTop">
                         <div className="js-results" aria-live="assertive">
-                        {this.createResults()}
+                            {this.createResults()}
                         </div>
+
+                    </div>
+
+                </div>
+                <div className="divAddActivityWrapper">
+                    <div className="lnkBack">
+                        <Link to={`/activity_new`} aria-label="New Activity">Log an Activity</Link>
                     </div>
                 </div>
+
             </main>
         )
     }
 }
-
-// Activities.propTypes = {
-//     activities: PropTypes.array.isRequired
-// }
 
 const mapStateToProps = state => ({
     activities: state.timeEntry.activities,

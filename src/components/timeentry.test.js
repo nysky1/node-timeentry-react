@@ -11,6 +11,3 @@ describe('<TimeEntry />', () => {
         shallow(<TimeEntry user={user} />);
     });
 });
-
-
-

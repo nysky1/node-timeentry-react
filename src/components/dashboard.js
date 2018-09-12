@@ -6,10 +6,8 @@ import {resetAlertMessage} from '../actions/index';
 export class Dashboard extends React.Component {
     componentDidMount() {
         this.props.resetAlertMessage();
-        //this.props.fetchUserBasicInfo();
     }
     render() { 
-        let isHiddenItem = (this.props.user.role)
         return (
             <div className="mainBox">
                 <div className="mainInnerBox noTop">
@@ -27,7 +25,6 @@ export class Dashboard extends React.Component {
                                 <i className="fa fa-users"></i>View All User Activities
                             </Link>
                         </fieldset>}
-                        
                     </form>
                 </div>
             </div>              
@@ -40,4 +37,4 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
-export default connect(mapStateToProps, {resetAlertMessage })(Dashboard);
+export default connect(mapStateToProps, { resetAlertMessage })(Dashboard);

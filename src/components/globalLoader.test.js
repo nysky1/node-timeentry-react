@@ -1,10 +1,8 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import { MemoryRouter } from 'react-router';
-
 import GlobalLoader  from './globalLoader';
 import Home from './home';
-import Login from './login';
 
 describe('<GlobalLoader />', () => {
     it('Renders without crashing', () => {

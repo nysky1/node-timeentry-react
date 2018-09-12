@@ -6,7 +6,6 @@ export default class Input extends React.Component {
             this.input.focus();
         }
     }
-
     render() {
         let error;
         if (this.props.meta.touched && this.props.meta.error) {
@@ -24,13 +23,12 @@ export default class Input extends React.Component {
                 <label htmlFor={this.props.input.name}>
                     {this.props.label}
                 </label>
-                <input 
+                <input
                     {...this.props.input}
                     id={this.props.input.name}
                     type={this.props.type}
                     ref={input => (this.input = input)}
                     placeholder={this.props.placeholder}
-                    
                 />
                 {error}
                 {warning}

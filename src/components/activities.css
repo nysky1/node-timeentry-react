@@ -18,8 +18,6 @@
     color:white;
     cursor: pointer;
 }
-
-
 .eventDate,.eventHours {
     float:left;
     margin-top:5px;
@@ -33,6 +31,9 @@
 .eventNameSpacer {
     width:20px;
     float:left;
+}
+.divAddActivityWrapper {
+    text-align: center;
 }
 .editButton {
     float:right;

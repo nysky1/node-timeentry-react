@@ -39,7 +39,5 @@ export const timeEntryReducer = (state = initialState, action) => {
         default: {
             return state;
         }
-
     }
-   
 }

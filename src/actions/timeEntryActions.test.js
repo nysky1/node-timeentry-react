@@ -166,8 +166,5 @@ describe('Activity specific action creators', () => {
                      expect(dispatchedActions[2]).toEqual({ payload: {"args": ["/activities"], method: "push"}, type: '@@router/CALL_HISTORY_METHOD' });
                 })
         })
-
     })
-    
-
 })

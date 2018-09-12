@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Confirm = (props) => {
-    
-
     return (props.isShown &&
         <div className="divConfirm">
             <div className="divConfirmContent">

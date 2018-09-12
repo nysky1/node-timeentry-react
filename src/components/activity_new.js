@@ -1,14 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { Field, reduxForm, focus } from 'redux-form';
 import Input from './input';
 import { createActivity } from '../actions/index';
 import Alert from './alert';
-//import './activity_new.css';
 import TextArea from './textArea';
 import { required, nonEmpty, email } from './validators';
-import getEnv from '../config/environments';
+
 
 export class NewActivity extends React.Component {
     onSubmit(values) {

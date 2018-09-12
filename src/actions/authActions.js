@@ -2,6 +2,14 @@ import appConfig from '../config/appConfig';
 import { push } from 'react-router-redux';
 import { SHOW_ALERT_MESSAGE } from './generalActions';
 
+/*
+1. fetchUserLogin is "action creator function" returns an object back
+1. Components dispatching object
+3. Object floats inside middleware 
+4. Middlware looks if async or not
+5. If async and contains promise, go through the onRequest
+*/
+
 export const FETCH_USER_BASIC_INFO_REQUEST_TRIGGERED = 'FETCH_USER_BASIC_INFO_REQUEST_TRIGGERED';
 export const FETCH_USER_BASIC_INFO_REQUEST_SUCCESS = 'FETCH_USER_BASIC_INFO_REQUEST_SUCCESS';
 export const FETCH_USER_BASIC_INFO_REQUEST_FAILURE = 'FETCH_USER_BASIC_INFO_REQUEST_FAILURE';
@@ -19,7 +27,6 @@ const handleFetchUserResponse = (response, dispatch) => {
 }
 
 export function fetchUserBasicInfo() {
-    //console.log('starting fetch');
     const promise = fetch(`${appConfig.USER_VALIDATE_ENDPOINT}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -56,14 +63,6 @@ const handleLoginResponse = (response, dispatch) => {
     });
     dispatch(push('/dashboard'));
 };
-
-/*
-1. fetchUserLogin is "action creator function" returns an object back
-1. Components dispatching object
-3. Object floats inside middleware 
-4. Middlware looks if async or not
-5. If async and contains promise, go through the onRequest
-*/
 
 export function fetchUserLogin(username, password) {
     const promise = fetch(`${appConfig.USER_LOGIN_ENDPOINT}`, {

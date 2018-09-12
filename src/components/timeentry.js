@@ -14,7 +14,6 @@ import Activities from './activities';
 import NewActivity from './activity_new';
 import ActivityEdit from './activity_edit';
 
-
 export class TimeEntry extends React.Component  {
 
     render() {
@@ -45,7 +44,6 @@ export class TimeEntry extends React.Component  {
 }
 
 const mapStateToProps = state => ({
-
     user: state.user,
 });
 

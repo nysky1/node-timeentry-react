@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import hasToken from '../helpers/token'
-import { fetchUserBasicInfo, resetAlertMessage //, resetLoaderMessage 
-} from '../actions/';
+import {fetchUserBasicInfo, resetAlertMessage } from '../actions/';
 
 class GlobalLoader extends React.Component {
     constructor(props) {
@@ -11,18 +10,14 @@ class GlobalLoader extends React.Component {
         this.props.history.listen((location, action) => {
             this.props.resetAlertMessage();
         });
-    }   
+    }
     componentDidMount() {
-        console.log ('global:' );
         if (hasToken() && !this.props.user.isLoggedIn) {
-            console.log('fetching user basic info');
             this.props.fetchUserBasicInfo();
-            console.log('reloading global');
         }
     }
 
     render() {
-        console.log('re-rendering global');
         return (
             <React.Fragment>
                 {this.props.appState.isFetchingUserBasicInfo ?
@@ -44,5 +39,4 @@ const mapStateToProps = state => ({
     user: state.user
 });
 
-export default withRouter(connect(mapStateToProps, { fetchUserBasicInfo, resetAlertMessage//, resetLoaderMessage 
-})(GlobalLoader));
+export default withRouter(connect(mapStateToProps, {fetchUserBasicInfo, resetAlertMessage})(GlobalLoader));

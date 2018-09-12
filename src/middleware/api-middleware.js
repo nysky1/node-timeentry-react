@@ -1,14 +1,15 @@
 import { push } from 'react-router-redux';
 import * as actionTypes from '../actions/index';
 import appConfig from '../config/appConfig';
- 
+
 const parseJSON = response => response.json();
- 
+
 const checkStatus = (dispatch, response) => {
+  //success codes
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
- 
+  //error codes
   if (response.status === 401) {
     dispatch({ type: actionTypes.UNAUTHORIZED_REDIRECT });
     dispatch(push(appConfig.UNAUTHORIZED_ENDPOINT));
@@ -26,13 +27,13 @@ const checkStatus = (dispatch, response) => {
     dispatch({ type: actionTypes.SERVER_ERROR_REDIRECT });
     dispatch(push(appConfig.SERVER_ERROR_ENDPOINT));
   }
- 
+
   return response.json().then((data) => {
     const error = new Error(response.statusText, data);
     throw error;
   });
 };
- 
+
 export default function apiMiddleware({ dispatch, getState }) {
   return next => (action) => {
     const {
@@ -43,16 +44,12 @@ export default function apiMiddleware({ dispatch, getState }) {
       return next(action);
     }
     
-
     if (typeof onRequest === 'function') {
-      //console.log('making middleware request func - ' + onRequest);
       onRequest(dispatch, getState);
     } else {
-      //console.log('making middleware request onReq - ' + onRequest);
       dispatch({ type: onRequest, ...rest });
     }
- 
-        //dispatch({type: actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED});
+
     return promise
       .catch((error) => {
         dispatch({ type: actionTypes.NOT_FOUND_REDIRECT });
@@ -62,23 +59,14 @@ export default function apiMiddleware({ dispatch, getState }) {
       .then(checkStatus.bind(null, dispatch))
       .then(parseJSON)
       .then((response) => {
-        
-          //dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
-          if (typeof onSuccess === 'function') {
-            //console.log('Finishing middleware request func - ' + response);
-            //console.log(onSuccess);
-            onSuccess(response, dispatch, getState);
-            
-          } else {
-            //console.log('Finishing middleware request onSucc - ' + onSuccess);
-            dispatch({ type: onSuccess, response, ...rest });
-            
-          }
-        
+        if (typeof onSuccess === 'function') {
+          onSuccess(response, dispatch, getState);
+
+        } else {
+          dispatch({ type: onSuccess, response, ...rest });
+        }
       })
       .catch((error) => {
-        //console.log('error');
-        //  dispatch({type: actionTypes.HIDE_LOADER_MESSAGE});
         if (error.type !== 'ActionError' || error.type === 'Unauthorized') {
           if (typeof onFailure === 'function') {
             onFailure(error.response, dispatch, getState);

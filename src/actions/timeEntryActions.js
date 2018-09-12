@@ -6,13 +6,11 @@ export const FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED = 'FETCH_USER_ACTIVITIES_RE
 export const FETCH_USER_ACTIVITIES_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITIES_REQUEST_SUCCESS';
 export const FETCH_USER_ACTIVITIES_REQUEST_FAILURE = 'FETCH_USER_ACTIVITIES_REQUEST_FAILURE';
 
-const handleUserActivitiesSuccess = (response,dispatch) => {
-    console.log('dispatching success');
-    dispatch( { type: FETCH_USER_ACTIVITIES_REQUEST_SUCCESS, response})
+const handleUserActivitiesSuccess = (response, dispatch) => {
+    dispatch({ type: FETCH_USER_ACTIVITIES_REQUEST_SUCCESS, response })
 }
 
 export function fetchUserActivities() {
-    //console.log('fetchingactivities...')
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}`, {
         headers: {
             'Content-Type': 'application/json',
@@ -31,8 +29,7 @@ export const FETCH_USER_ACTIVITY_REQUEST_TRIGGERED = 'FETCH_USER_ACTIVITY_REQUES
 export const FETCH_USER_ACTIVITY_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITY_REQUEST_SUCCESS';
 export const FETCH_USER_ACTIVITY_REQUEST_FAILURE = 'FETCH_USER_ACTIVITY_REQUEST_FAILURE';
 
-const handleUserActivityResponse = (response, dispatch) => { 
-    //console.log(response);
+const handleUserActivityResponse = (response, dispatch) => {
     dispatch({
         type: FETCH_USER_ACTIVITY_REQUEST_SUCCESS,
         response,
@@ -59,7 +56,7 @@ export const FETCH_USER_ACTIVITY_CREATE_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITY_C
 export const FETCH_USER_ACTIVITY_CREATE_REQUEST_FAILURE = 'FETCH_USER_ACTIVITY_CREATE_REQUEST_FAILURE';
 
 
-const handleCreateUserActivityResponse = (response, dispatch) => { 
+const handleCreateUserActivityResponse = (response, dispatch) => {
     dispatch({
         type: FETCH_USER_ACTIVITY_CREATE_REQUEST_SUCCESS,
         response,
@@ -67,8 +64,8 @@ const handleCreateUserActivityResponse = (response, dispatch) => {
     dispatch(push('/activities'));
 }
 
-export function createActivity(activity,activityDate,activityDuration) {
-    
+export function createActivity(activity, activityDate, activityDuration) {
+
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity`, {
         method: 'PUT',
         headers: {
@@ -80,7 +77,7 @@ export function createActivity(activity,activityDate,activityDuration) {
             activityDate,
             activityDuration,
             id: sessionStorage.getItem(appConfig.USER_CONTENT_KEY)
-          }),
+        }),
     });
     return {
         onRequest: FETCH_USER_ACTIVITY_CREATE_REQUEST_TRIGGERED,
@@ -95,7 +92,7 @@ export const FETCH_USER_ACTIVITY_EDIT_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITY_EDI
 export const FETCH_USER_ACTIVITY_EDIT_REQUEST_FAILURE = 'FETCH_USER_ACTIVITY_EDIT_REQUEST_FAILURE';
 
 
-const handleEditUserActivityResponse = (response, dispatch) => { 
+const handleEditUserActivityResponse = (response, dispatch) => {
     dispatch({
         type: FETCH_USER_ACTIVITY_EDIT_REQUEST_SUCCESS,
         response,
@@ -103,7 +100,7 @@ const handleEditUserActivityResponse = (response, dispatch) => {
     dispatch(push('/activities'));
 }
 
-export function saveActivity(activityId,activity,activityDate,activityDuration) {
+export function saveActivity(activityId, activity, activityDate, activityDuration) {
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activityId}`, {
         method: 'PUT',
         headers: {
@@ -116,7 +113,7 @@ export function saveActivity(activityId,activity,activityDate,activityDuration) 
             activityDate,
             activityDuration,
             id: sessionStorage.getItem(appConfig.USER_CONTENT_KEY)
-          }),
+        }),
     });
     return {
         onRequest: FETCH_USER_ACTIVITY_EDIT_REQUEST_TRIGGERED,
@@ -131,8 +128,7 @@ export const REMOVE_USER_ACTIVITY_REQUEST_SUCCESS = 'REMOVE_USER_ACTIVITY_REQUES
 export const REMOVE_USER_ACTIVITY_REQUEST_FAILURE = 'REMOVE_USER_ACTIVITY_REQUEST_FAILURE';
 
 
-const handleRemoveUserActivityResponse = (response, dispatch) => { 
-    console.log(response);
+const handleRemoveUserActivityResponse = (response, dispatch) => {
     dispatch({
         type: RESET_CONFIRM_MESSAGE,
         response,
@@ -141,7 +137,6 @@ const handleRemoveUserActivityResponse = (response, dispatch) => {
 }
 
 export function removeActivity(activityId) {
-    console.log('removing..');
     const promise = fetch(`${appConfig.USER_ENDPOINT}/${sessionStorage.getItem(appConfig.USER_CONTENT_KEY)}/activity/${activityId}`, {
         method: 'DELETE',
         headers: {

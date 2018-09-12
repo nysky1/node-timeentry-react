@@ -1,9 +1,6 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {
-    Link
-  } from 'react-router-dom'
-import './navBar.css';
+import {Link} from 'react-router-dom'
+
 export default class SignedOut extends React.Component {
     
     render() {

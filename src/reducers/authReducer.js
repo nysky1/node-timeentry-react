@@ -6,7 +6,6 @@ const initialState = {
     username: null,
     email: null,
     role: null
-
 };
 
 export default function reducer(state = initialState, action) {
@@ -31,6 +30,12 @@ export default function reducer(state = initialState, action) {
             isLoggedIn: true,
             role: action.response.role
           };
+        }
+        case actionTypes.HANDLE_LOGOUT: {
+          return {
+            ...state,
+            isLoggedIn: initialState.isLoggedIn
+          }
         }
         default: {
           return state;

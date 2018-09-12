@@ -6,9 +6,7 @@ import { handleLogout } from '../actions/index';
 
 
 export class Logout extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+
     componentDidMount() {
         const eventId = this.props.match.params.eventId;
         this.props.handleLogout();
@@ -18,7 +16,6 @@ export class Logout extends React.Component {
             <div className="mainBox">
                 <div className="mainInnerBox noTop">
                     <h1 className="mainInnerBoxHeader">You are Logged Out</h1>
-
                     <div className="lnkBack">
                         <Link to="/login">Back to Login</Link>
                     </div>

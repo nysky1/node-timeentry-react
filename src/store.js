@@ -8,7 +8,6 @@ import mainReducer from './reducers/indexReducer';
 
 export const history = createHistory();
 
-//todo, add apiMiddleware and routerMiddlware
 const middleware = [
     thunk,
     apiMiddleware,

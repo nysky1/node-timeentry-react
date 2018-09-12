@@ -12,5 +12,5 @@ const mainReducer = combineReducers({
   form: reduxFormReducer,
   timeEntry: timeEntryReducer
 });
- 
+
 export default mainReducer;
