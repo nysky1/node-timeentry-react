@@ -27,9 +27,9 @@ export class TimeEntry extends React.Component  {
                         <main>
                             <Switch>
                                 <Route exact path="/" component={Home} />
-                                <Route path="/login" component={Login} />
-                                <Route path="/register" component={Register} />
-                                <Route path="/logout" component={Logout} />
+                                <Route exact path="/login" component={Login} />
+                                <Route exact path="/register" component={Register} />
+                                <Route exact path="/logout" component={Logout} />
                                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                                 <PrivateRoute exact path="/activities" component={Activities}  />
                                 <PrivateRoute exact path="/activities_all" component={ActivitiesAll}  />
