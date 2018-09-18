@@ -136,3 +136,11 @@ fieldset input,fieldset textarea,fieldset button,fieldset a {
     text-align: center;
     color: #2862b7; 
 }
+
+.lnkBack {
+    margin-top:15px;
+    padding:30px 0;
+}
+.lnkBack a{
+    margin-right:15px;
+}

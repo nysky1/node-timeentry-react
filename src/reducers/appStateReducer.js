@@ -22,6 +22,12 @@ export default function reducer(state = initialState, action) {
           isFetchingGlobal: initialState.isFetchingGlobal,
         };
       }
+    case actionTypes.FETCH_USER_ACTIVITIES_ALL_REQUEST_SUCCESS: {        
+        return {
+          ...state,
+          isFetchingGlobal: initialState.isFetchingGlobal,
+        };
+      }
     case actionTypes.FETCH_USER_BASIC_INFO_REQUEST_TRIGGERED: {
       return {
         ...state,

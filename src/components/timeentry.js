@@ -11,6 +11,7 @@ import Dashboard from './dashboard';
 import Register from './register';
 import PrivateRoute from './privateRoute';
 import Activities from './activities';
+import ActivitiesAll from './activities_all';
 import NewActivity from './activity_new';
 import ActivityEdit from './activity_edit';
 
@@ -31,6 +32,7 @@ export class TimeEntry extends React.Component  {
                                 <Route path="/logout" component={Logout} />
                                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                                 <PrivateRoute exact path="/activities" component={Activities}  />
+                                <PrivateRoute exact path="/activities_all" component={ActivitiesAll}  />
                                 <PrivateRoute exact path="/activity_new" component={NewActivity} />
                                 <PrivateRoute exact path="/activity_edit/:eventId" component={ActivityEdit} />
                             </Switch>

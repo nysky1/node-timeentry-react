@@ -3,7 +3,8 @@ import * as actionTypes from '../actions';
 const initialState = {
     activities: [],
     activity: [],
-    hasConfirm: false
+    hasConfirm: false,
+    users: []
 };
 
 export const timeEntryReducer = (state = initialState, action) => {
@@ -34,6 +35,12 @@ export const timeEntryReducer = (state = initialState, action) => {
             return {
                 ...state,
                 activities: action.response.activities,
+            }
+        }
+        case actionTypes.FETCH_USER_ACTIVITIES_ALL_REQUEST_SUCCESS: {
+            return {
+                ...state,
+                users: action.response,
             }
         }
         default: {

@@ -62,8 +62,8 @@ export class ActivityEdit extends React.Component {
                         </fieldset>
 
                         <div className="lnkBack">
-                            <Link to={`/activities`} aria-label="Cancel this edit">Cancel this edit</Link> |
-                                <a href="#" aria-label="Delete this activity" onClick={() => this.handleDelete()}>Delete this item</a>
+                            <Link to={`/activities`} aria-label="Cancel this edit">Cancel this Edit</Link> 
+                                <a href="#" aria-label="Delete this activity" onClick={() => this.handleDelete()}>Delete this Entry</a>
                         </div>
                     </form>
                 </div>

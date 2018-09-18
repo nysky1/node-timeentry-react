@@ -20,8 +20,8 @@ export class Dashboard extends React.Component {
                             <Link className="btnStandard newActivity" to="/activity_new">
                                 <i className="fa fa-pencil"></i>Log an Activity</Link>
                         </fieldset>
-                        {this.props.user.role === "admin" && <fieldset className="fldAdmin" hidden>
-                            <Link className="btnStandard btnAdmin viewActivitiesAdmin" to="/activities"  >
+                        {this.props.user.role == "admin" && <fieldset className="fldAdmin">
+                            <Link className="btnStandard btnAdmin viewActivitiesAdmin" to="/activities_all"  >
                                 <i className="fa fa-users"></i>View All User Activities
                             </Link>
                         </fieldset>}

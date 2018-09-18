@@ -1,5 +1,8 @@
 
 /* BEGIN - List View   */
+body {
+    background:linear-gradient(180deg,#0f62bd 24%,#0f62bd 168%);
+}
 .js-results a {
     text-decoration: none;
     color: #2862b7;
@@ -44,4 +47,12 @@
 }
 .js-panel-list-wrapper:hover .editButton {
     display:block;
+}
+.js-panel-item {
+    text-align: left;
+    padding: 10px 15px;
+    min-height: 50px;
+}
+ul {
+    padding:0;
 }

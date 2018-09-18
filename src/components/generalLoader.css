@@ -21,8 +21,11 @@
     border-width: 30px;
     border-radius: 50%;
     -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    -o-animation: spin 1s linear infinite;
+       animation: spin 1s linear infinite;
 }
-.style-2 .loading-wheel {
+.wheel-border .loading-wheel {
     border-style: double;
     border-color: #ccc transparent;
 }
@@ -34,3 +37,14 @@
         -webkit-transform: rotate(-360deg);
     }
 }
+@-moz-keyframes spin {
+    100% { -moz-transform: rotate(359deg); }
+    }
+  
+  @-o-keyframes spin {
+    100% { -moz-transform: rotate(359deg); }
+    }
+  
+  @keyframes spin {
+    100% {  transform: rotate(359deg); }
+    }

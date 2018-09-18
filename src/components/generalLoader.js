@@ -18,7 +18,7 @@ class GeneralLoader extends React.Component {
             <React.Fragment>
                 {this.props.appState.isFetchingGlobal &&
                     <React.Fragment>
-                        <div className="loading style-2"><div className="loading-wheel"></div></div>
+                        <div className="loading wheel-border"><div className="loading-wheel"></div></div>
                     </React.Fragment>
                 }
                 <React.Fragment>

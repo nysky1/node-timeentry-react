@@ -1,0 +1,23 @@
+
+.js-panel-list-wrapper-all-users {
+    clear:left;
+    display:block;
+    width:100%;
+    min-height: 50px;
+    text-align: left;
+    border-bottom:solid 1px #dcdcdc;
+    padding:15px 10px;
+    margin-top:8px;
+}
+.activityListUser {
+    font-weight:bold;
+    padding:5px;
+    color: white;
+    background: #2862b7;
+}
+.totalHours {
+    float:right;
+}
+.ulUserList {
+    padding:0;
+}

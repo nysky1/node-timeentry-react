@@ -25,6 +25,29 @@ export function fetchUserActivities() {
     };
 }
 
+export const FETCH_USER_ACTIVITIES_ALL_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITIES_ALL_REQUEST_SUCCESS';
+
+
+const handleUserActivitiesAllSuccess = (response, dispatch) => {
+   
+    dispatch({ type: FETCH_USER_ACTIVITIES_ALL_REQUEST_SUCCESS, response })
+}
+
+export function fetchUserActivitiesAll() {
+    const promise = fetch(`${appConfig.USER_ENDPOINT}`, {
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + sessionStorage.getItem(appConfig.TOKEN_CONTENT_KEY)
+        }
+    });
+    return {
+        onRequest: FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED,
+        onSuccess: handleUserActivitiesAllSuccess,
+        onFailure: FETCH_USER_ACTIVITIES_REQUEST_FAILURE,
+        promise,
+    };
+}
+
 export const FETCH_USER_ACTIVITY_REQUEST_TRIGGERED = 'FETCH_USER_ACTIVITY_REQUEST_TRIGGERED';
 export const FETCH_USER_ACTIVITY_REQUEST_SUCCESS = 'FETCH_USER_ACTIVITY_REQUEST_SUCCESS';
 export const FETCH_USER_ACTIVITY_REQUEST_FAILURE = 'FETCH_USER_ACTIVITY_REQUEST_FAILURE';
