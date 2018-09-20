@@ -7,7 +7,7 @@ const Confirm = (props) => {
             <div className="divConfirmContent">
                 <div className="divContainer">
                     <h3>Are you sure?</h3>
-                    <button className="btnStandard btnConfirmYes" onClick={() => props.onConfirm()}>Yes</button>
+                    <button className="btnStandard btnConfirmYes" onClick={() => props.onConfirm()}>Yes</button>&nbsp;
                     <button className="btnStandard btnConfirmNo" onClick={() => props.onReset()}>No</button>
                 </div>
             </div>
