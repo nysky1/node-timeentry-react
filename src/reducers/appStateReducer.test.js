@@ -18,7 +18,6 @@ describe('the app state changes in response to events', () => {
     };
     let state = AppStateReducer( initialState, { type: actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED, 
         response: {
-            ...initialState,
             isFetchingGlobal: true
         } 
     } );

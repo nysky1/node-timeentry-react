@@ -12,7 +12,6 @@ const initialState = {
 describe('the authorization state changes in response to events', () => {
     it('fetches basic user info', () => {
         const expectedState = {
-            ...initialState,
             id: "abc",
             username: 'abc',
             email: 'aa@abc.com',
@@ -22,7 +21,6 @@ describe('the authorization state changes in response to events', () => {
         let state = AuthReducer(initialState, {
             type: actionTypes.FETCH_USER_BASIC_INFO_REQUEST_SUCCESS,
             response: {
-
                 _id: "abc",
                 username: 'abc',
                 email: 'aa@abc.com',
@@ -34,7 +32,6 @@ describe('the authorization state changes in response to events', () => {
     })
     it('responds to a user login', () => {
         const expectedState = {
-            ...initialState,
             id: 'abc',
             username: 'abc',
             email: 'aa@abc.com',
@@ -44,11 +41,9 @@ describe('the authorization state changes in response to events', () => {
         let state = AuthReducer(initialState, {
             type: actionTypes.FETCH_USER_LOGIN_REQUEST_SUCCESS,
             response: {
-
                 _id: 'abc',
                 username: 'abc',
                 email: 'aa@abc.com',
-                isLoggedIn: true,
                 role: 'user'
             }
         });
