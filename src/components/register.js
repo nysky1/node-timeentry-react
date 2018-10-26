@@ -49,7 +49,7 @@ export class Register extends React.Component {
                             </fieldset>
                         </form>
                         <div className="lnkBack">
-                            <a href="/login" aria-label="Click to sign in">Already have an account?</a>
+                            <Link to="/login" aria-label="Click to sign in">Already have an account?</Link>
                         </div>
                     </div>
                 </div>
