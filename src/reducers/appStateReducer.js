@@ -5,7 +5,8 @@ const initialState = {
   uiMessage: null,
   uiMessageClass: "",
   isFetchingUserBasicInfo: false,
-  isFetchingGlobal: false
+  isFetchingGlobal: false,
+  startUpEmail: ""
 };
 
 export default function reducer(state = initialState, action) {
@@ -66,7 +67,14 @@ export default function reducer(state = initialState, action) {
         ...state,
         hasUIAlert: initialState.hasUIAlert,
         uiMessage: initialState.uiMessage,
-        uiMessageClass: initialState.uiMessageClass
+        uiMessageClass: initialState.uiMessageClass,
+
+      };
+    }
+    case actionTypes.START_EMAIL: {
+      return {
+        ...state,
+        email: action.email
       };
     }
     default: {

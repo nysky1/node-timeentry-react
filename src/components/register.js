@@ -8,6 +8,12 @@ import Alert from './alert';
 import './register.css';
 
 export class Register extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+    componentDidMount() {
+        //this.props.name = 'bb@bb.com';
+    }
     onSubmit(values) {   
         const username = values.username;
         const email = values.email;
@@ -58,10 +64,25 @@ export class Register extends React.Component {
     }
 }
 
-const mapStateToProps = state => ({
-    uiAlert: state.appState
-});
+// const mapStateToProps = state => ({
+//     uiAlert: state.appState,
+//     name: ''
+// });
 
-export default reduxForm({
+// export default reduxForm({
+//     form: 'Register',
+//})(connect(mapStateToProps, {createUser})(Register));
+
+let InitializeForm = reduxForm({
     form: 'Register',
-})(connect(mapStateToProps, {createUser})(Register));
+    enableReinitialize: true //essential so that if back is used will refill
+})(Register)
+
+InitializeForm = connect(state => ({
+    initialValues: state.appState,
+    // isFetching: state.timeEntry.isFetching,
+    // user: state.user,
+    uiAlert: state.appState
+}), { createUser })(InitializeForm)
+
+export default InitializeForm;

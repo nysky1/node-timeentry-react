@@ -144,3 +144,25 @@ fieldset input,fieldset textarea,fieldset button,fieldset a {
 .lnkBack a{
     margin-right:15px;
 }
+
+/*iPhone 6/7/8 and Samsung S5 */
+@media only screen and (max-width: 640px) {
+    .mainInnerBox {
+        width:100%;
+    }
+    #frmQuickStart {
+        width:100%;
+    }
+    .divConfirmContent {
+        width:90%;
+    }
+}
+@media only screen and (max-width: 667px) and (orientation: landscape) {
+  
+}
+/*iPhone 5 and smaller format devices*/
+@media only screen and (max-width: 568px) and ( orientation: portrait) {
+    .mainBox {
+        padding:0px;
+    }
+}

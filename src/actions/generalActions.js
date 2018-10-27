@@ -1,3 +1,5 @@
+
+
 // 401 Unauthorized Redirect
 export const UNAUTHORIZED_REDIRECT = 'UNAUTHORIZED_REDIRECT';
  
@@ -23,6 +25,15 @@ export const RESET_ALERT_MESSAGE = 'RESET_ALERT_MESSAGE';
 export function resetAlertMessage(){
     return{
         type: 'RESET_ALERT_MESSAGE'
+    };
+};
+
+export const START_EMAIL = 'START_EMAIL';
+export function setStartEmail(email){
+    console.log(email);
+    return {
+        type: 'START_EMAIL',
+        email
     };
 };
 
