@@ -1,5 +1,3 @@
-
-
 // 401 Unauthorized Redirect
 export const UNAUTHORIZED_REDIRECT = 'UNAUTHORIZED_REDIRECT';
  
@@ -17,6 +15,7 @@ export const SERVER_ERROR_REDIRECT = 'SERVER_ERROR_REDIRECT';
  
 // Show alert message
 export const SHOW_ALERT_MESSAGE = 'SHOW_ALERT_MESSAGE';
+
 // Show error message
 export const SHOW_ERROR_MESSAGE = 'SHOW_ERROR_MESSAGE';
 
@@ -30,7 +29,6 @@ export function resetAlertMessage(){
 
 export const START_EMAIL = 'START_EMAIL';
 export function setStartEmail(email){
-    console.log(email);
     return {
         type: 'START_EMAIL',
         email
@@ -52,12 +50,3 @@ export function resetConfirmMessage(){
         type: 'RESET_CONFIRM_MESSAGE'
     };
 };
-
-// // Show error message
-// export const SHOW_LOADER_MESSAGE = 'SHOW_LOADER_MESSAGE';
-// export const HIDE_LOADER_MESSAGE = 'HIDE_LOADER_MESSAGE';
-// export function resetLoaderMessage(){
-//     return{
-//         type: 'HIDE_LOADER_MESSAGE'
-//     };
-// };

@@ -11,9 +11,6 @@ export class Register extends React.Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount() {
-        //this.props.name = 'bb@bb.com';
-    }
     onSubmit(values) {   
         const username = values.username;
         const email = values.email;
@@ -63,16 +60,6 @@ export class Register extends React.Component {
         )
     }
 }
-
-// const mapStateToProps = state => ({
-//     uiAlert: state.appState,
-//     name: ''
-// });
-
-// export default reduxForm({
-//     form: 'Register',
-//})(connect(mapStateToProps, {createUser})(Register));
-
 let InitializeForm = reduxForm({
     form: 'Register',
     enableReinitialize: true //essential so that if back is used will refill
@@ -80,8 +67,6 @@ let InitializeForm = reduxForm({
 
 InitializeForm = connect(state => ({
     initialValues: state.appState,
-    // isFetching: state.timeEntry.isFetching,
-    // user: state.user,
     uiAlert: state.appState
 }), { createUser })(InitializeForm)
 
