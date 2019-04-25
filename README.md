@@ -8,6 +8,6 @@
 <h5><b>Admin Demo Account:</b> devtest - <b>Admin Demo Password:</b> Passw0rd</h5>
 <a target="_new" href="https://desolate-cove-28283.herokuapp.com/">Go to the Live Site</a> 
  
-<img alt="VolunteerTrak Screenshot" src="https://desolate-cove-28283.herokuapp.com/images/screen1.png?v2" />
-<img alt="VolunteerTrak Screenshot" src="https://desolate-cove-28283.herokuapp.com/images/screen2.png?v2" />
-<img alt="VolunteerTrak Screenshot" src="https://desolate-cove-28283.herokuapp.com/images/screen3.png?v2" />
+<img alt="VolunteerTrack Screenshot" src="https://desolate-cove-28283.herokuapp.com/images/screen1.png?v2" />
+<img alt="VolunteerTrack Screenshot" src="https://desolate-cove-28283.herokuapp.com/images/screen2.png?v2" />
+<img alt="VolunteerTrack Screenshot" src="https://desolate-cove-28283.herokuapp.com/images/screen3.png?v2" />
