@@ -27,7 +27,8 @@
     "serve": "11.0.0"
   },
   "scripts": {
-    "start": "serve -s build",
+    "dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "postbuild": "rimraf build/**/*.map",
     "heroku-postbuild": "npm run build",
