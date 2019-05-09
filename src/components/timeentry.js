@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+//Keep these
 import { BrowserRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
 import NavBar from './navbar';
 import Home from './home';

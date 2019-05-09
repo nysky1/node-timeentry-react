@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import SignedOut from './signedOut';
 import SignedIn from './signedIn';
 
