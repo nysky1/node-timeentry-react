@@ -8,7 +8,7 @@ const initialState = {
   isFetchingGlobal: false,
   startUpEmail: ""
 };
-
+ 
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case actionTypes.FETCH_USER_ACTIVITIES_REQUEST_TRIGGERED: {
