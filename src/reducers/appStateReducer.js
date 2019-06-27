@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/index';
-
+ 
 const initialState = {
   hasUIAlert: null,
   uiMessage: null,
